@@ -91,4 +91,4 @@ notificação da alteração de estado).
 ## Pontos negativos:
  - A performance do método de notificação dos observadores tem que ser levado em consideração, quando houver
 muitos observadores, e caso haja algum observador que leve um tempo considerável para executar a devida ação
-com relação a notificação recebida;
+com relação a notificação recebida.
