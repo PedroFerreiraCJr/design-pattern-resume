@@ -1,4 +1,4 @@
-<h1 align="center">Resumos Design Pattern - GoF</h1>
+<h1 align="center">Resumo Design Patterns em Java - GoF</h1>
 Repositório contendo anotações sobre alguns padrões de projeto apresentados no curso
 
 [Java Design Patterns & SOLID Design Principles](https://www.udemy.com/course/design-patterns-in-java-concepts-hands-on-projects/)
