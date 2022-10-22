@@ -34,3 +34,19 @@ este possa receber uma invocação quando houver a necessidade de notificar os d
 questão; outro aspecto a se notar é, que o Mediator é fortemente acoplado com os Concretes Colleagues - caso
 precisem ser usados como classes derivadas de Colleague, porque o Mediator poderá ter que saber invocar um
 método em específico de cada Concrete Colleague;
+
+## Passos de implementação:
+ - O primeiro passo é desenvolver a classe Mediator; esta classe deve conter um método genérico que poderá ser
+usado por um dos objetos do grupo para notificar os demais sobre uma alteração de estado; este método precisa
+saber em qual objeto do conjunto houve a alteração e, em qual propriedade do objeto ocorreu a alteração de
+estado; a classe Mediator pode ser desenvolvida como sendo uma interface/classe abstrata ou uma classe concreta
+caso não haja a necessidade de derivação no futuro; neste método genérico, deve ser feita a notificação dos
+demais objetos do grupo de colaboração; portanto, este método deve notificar os demais objetos, menos o objeto
+onde ocorreu a alteração de estado e, assim como o objeto que houve a alteração, deve receber o valor que foi
+alterado; outra solução comumente usada é, possibilitar aos objetos que recebem a notificação perguntarem ao
+objeto recebido no método qual propriedade foi alterada;
+ - O Mediator precisa saber sobre todos os objetos que estão colaborando no conjunto, para que possa enviar a
+notificação a eles; outra solução é, o próprio Mediator criar estes objetos;
+ - Dependendo de sua implementação específica, você pode precisar lidar com o loop infinito de
+change-notify-change que pode resultar se o manipulador de alteração de valor do objeto for chamado para
+cada alteração de valor, seja de uma fonte externa ou de um mediador.
