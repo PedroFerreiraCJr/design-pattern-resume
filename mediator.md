@@ -22,8 +22,8 @@ o mediator precisará ser alterado com a adição do novo tipo de objeto;
 ## Principais papéis:
  - Mediator: interface/classe abstrata/classe concreta que representa a API disponível para os integrantes
 do grupo de colaboração e, que podem ser invocados para notificar os demais "colegas" do grupo de
-colaboração; por exemplo, o método `public void collegueChanged(Collegue)` serviria para notificar os demais
-"colegas" do grupo de comunicação/colaboração sobre uma alteração de estado;
+colaboração; por exemplo, o método `public void colleagueChanged(Colleague)` serviria para notificar os
+demais "colegas" do grupo de comunicação/colaboração sobre uma alteração de estado;
  - Concrete Mediator: caso o tipo Mediator seja uma interface ou classe abstrata, uma classe concreta serviria
 para realizar as operações que foram definidas na API da interface/superclasse; outro aspecto desta classe é
 que deve manter uma referência para os demais "colegas" de colaboração do grupo; com uma referência para os
