@@ -18,3 +18,19 @@ que é mantido pelo mediator; dessa forma, somente o mediator precisará ser alt
 objeto do grupo;
  - De maneira semelhante, se houver a necessidade de adição de outro objeto ao grupo de colaboração, somente
 o mediator precisará ser alterado com a adição do novo tipo de objeto;
+
+## Principais papéis:
+ - Mediator: interface/classe abstrata/classe concreta que representa a API disponível para os integrantes
+do grupo de colaboração e, que podem ser invocados para notificar os demais "colegas" do grupo de
+colaboração; por exemplo, o método `public void collegueChanged(Collegue)` serviria para notificar os demais
+"colegas" do grupo de comunicação/colaboração sobre uma alteração de estado;
+ - Concrete Mediator: caso o tipo Mediator seja uma interface ou classe abstrata, uma classe concreta serviria
+para realizar as operações que foram definidas na API da interface/superclasse; outro aspecto desta classe é
+que deve manter uma referência para os demais "colegas" de colaboração do grupo; com uma referência para os
+"colegas" de grupo, esta classe poderia notificá-los;
+- Colleague: classe que participa do conjunto/grupo de objetos que podem receber uma notificação sobre uma
+alteração de estado em outros objetos "colegas"; estes objetos mantém uma referência para o Mediator para que
+este possa receber uma invocação quando houver a necessidade de notificar os demais "colegas" do grupo em
+questão; outro aspecto a se notar é, que o Mediator é fortemente acoplado com os Concretes Colleagues - caso
+precisem ser usados como classes derivadas de Colleague, porque o Mediator poderá ter que saber invocar um
+método em específico de cada Concrete Colleague;
