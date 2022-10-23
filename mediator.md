@@ -117,3 +117,15 @@ um elemento do grupo de botões esteja selecionado; os botôes participantes inv
  - Muitas vezes o Front Controller é dado como um exemplo do design pattern Mediator; como por exemplo,
 o DispatcherServlet do framework Spring MVC; vale notar que o Front Controller é uma forma especializada
 de representar o design pattern Mediator.
+
+## Comparação de padrões:
+ - O design pattern Mediator pode ser comparado com o design pattern Observer;
+ - A intenção do design pattern é encapsular uma interação complexa entre objetos; a intenção do design
+pattern Observer é estabelecer um relacionamento one-to-many entre objetos; no caso do design patern
+Observer a comunicação é unidirecional, partindo do objeto Subject para os objetos Observers; já a
+comunicação estabelecida no design pattern Mediator é bidirecional, pois cada objeto pode notificar todos
+do grupo de colaboração;
+ - A implementação do Mediator são tipicamente específicas aos objetos sendo mediados e, portanto, pode ser
+preciso invocar um método em específico de determinado objeto; por outro lado, as implementações do design
+pattern Observer são genéricas, pois em sua maioria é usado de interfaces que devem ser implementadas; e
+desta forma, uma vez implementado as interfaces, podem ser usadas por outras classes.
