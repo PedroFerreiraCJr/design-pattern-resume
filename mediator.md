@@ -17,7 +17,7 @@ demais objetos do grupo que devem receber esta notificação;
 que é mantido pelo mediator; dessa forma, somente o mediator precisará ser alterado com a remoção de um
 objeto do grupo;
  - De maneira semelhante, se houver a necessidade de adição de outro objeto ao grupo de colaboração, somente
-o mediator precisará ser alterado com a adição do novo tipo de objeto;
+o mediator precisará ser alterado com a adição do novo tipo de objeto.
 
 ## Principais papéis:
  - Mediator: interface/classe abstrata/classe concreta que representa a API disponível para os integrantes
@@ -33,7 +33,7 @@ alteração de estado em outros objetos "colegas"; estes objetos mantém uma ref
 este possa receber uma invocação quando houver a necessidade de notificar os demais "colegas" do grupo em
 questão; outro aspecto a se notar é, que o Mediator é fortemente acoplado com os Concretes Colleagues - caso
 precisem ser usados como classes derivadas de Colleague, porque o Mediator poderá ter que saber invocar um
-método em específico de cada Concrete Colleague;
+método em específico de cada Concrete Colleague.
 
 ## Passos de implementação:
  - O primeiro passo é desenvolver a classe Mediator; esta classe deve conter um método genérico que poderá ser
@@ -85,7 +85,7 @@ ser invocado recebe como argumento um colleague, que é um `UIControl`; que nest
 houve a alteração de estado, portanto, ele recebe como argumento o elemento em si; o papel do Mediator é passar
 essa referência de componente de tela onde houve a alteração de estado para os demais componentes (colleagues)
 para que, cada um deles, possa obter o valor que foi alterado no objeto recebido, ou seja, invocar o método
-`public T getValue()`;
+`public T getValue()`.
 
 ## Considerações de implementação:
  - É importante que o Mediator possa identificar qual objeto fez o envio da notificação, para que ele possa
@@ -97,7 +97,7 @@ design pattern Observer;
  - Frequentimente acontece de termos a classe Mediator muito complexa, porque ela se torna o ponto central
 de comunicação entre diversos objetos e, caso esta comunicação seja mais específica, com relação ao método
 que deve ser invocado nos objetos do conjunto de colaboração, isto pode tornar a implementação mais difícil
-de manter, assim como, desenvolver testes unitários para essa classe;
+de manter, assim como, desenvolver testes unitários para essa classe.
 
 ## Considerações de design:
  - Um aspecto que deve ser notado é que é possível estender a classe Mediator para criar diferentes variações
@@ -105,4 +105,15 @@ com o objetivo de criar uma forma de comunicação, de forma que ele possa ficar
  - Um mediator abstrato muitas vezes não é preciso porque os objetos participando como colleagues são
 normalmente os mesmos;
  - É possível usar o design pattern Observer para implementar o mecanismo de notificação dos elementos que
-fazem parte do conjunto de objetos colaboradores;
+fazem parte do conjunto de objetos colaboradores.
+
+## Exemplos do padrão:
+ - Uma característica determinante deste design pattern é, que ele simplifica (streamlines) a
+comunicação entre vários objetos; então uma classe que simplesmente invoca métodos em algumas classes
+não pode ser chamada de Mediator;
+ - A classe javax.swing.ButtonGroup é um exemplo de Mediator; ela toma de conta de assegurar que somente
+um elemento do grupo de botões esteja selecionado; os botôes participantes invocam o Mediator
+(ButtonGroup) quando eles são selecionados;
+ - Muitas vezes o Front Controller é dado como um exemplo do design pattern Mediator; como por exemplo,
+o DispatcherServlet do framework Spring MVC; vale notar que o Front Controller é uma forma especializada
+de representar o design pattern Mediator.
