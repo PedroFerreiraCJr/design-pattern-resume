@@ -129,3 +129,12 @@ do grupo de colaboração;
 preciso invocar um método em específico de determinado objeto; por outro lado, as implementações do design
 pattern Observer são genéricas, pois em sua maioria é usado de interfaces que devem ser implementadas; e
 desta forma, uma vez implementado as interfaces, podem ser usadas por outras classes.
+
+## Pontos negativos:
+ - Um aspecto ruim deste design pattern é que a classe Mediator se torna o ponto central de controle dos
+objetos; e portanto, quanto mais específico tiver que ser a interação do mediator com os colleages do
+conjunto de objetos, assim como, se houver muitos objetos a lidar, desta forma este design pattern se torna
+mais difícil de manter;
+ - Tornar este padrão reusável é mais difícil porque ele possui um forte acoplamento com as classes
+colaboradoras (colleagues); já o design pattern semelhante a este, o Observer, é muito mais reutilizável
+porque ele pode se basear em interface.
