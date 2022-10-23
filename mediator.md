@@ -50,3 +50,39 @@ notificação a eles; outra solução é, o próprio Mediator criar estes objeto
  - Dependendo de sua implementação específica, você pode precisar lidar com o loop infinito de
 change-notify-change que pode resultar se o manipulador de alteração de valor do objeto for chamado para
 cada alteração de valor, seja de uma fonte externa ou de um mediador.
+
+## A implementação de exemplo:
+ - Neste caso de uso, será usado uma implementação de exemplo que utiliza o framework de componentes de
+interface gráfica JavaFX, porque será mais fácil de visualizar e entender como o design pattern pode ser
+implementado;
+ - Será criado uma única classe concreta para representar o Mediator, chamado de UIMediator; neste caso,
+não será preciso criar um Mediator abstrato, porque este é um cenário mais simplificado; iremos criar
+uma interface que deve ser implementada por cada um dos objetos que desejam participar do conjunto de
+colaboração; esta estratégia não é algo que seja solicitado pelo design pattern, mas sim, com o objetivo
+de simplificar esta implementação em particular; a interface mencionada anteriormente, é a interface
+`UIControl` que é usada para representar um `Colleague` que participa do conjunto de objetos que devem
+colaborar entre si;
+ - Para este exemplo, será utilizado três componentes de interface que devem colaborar entre si; eles
+são: `Slider`, `TextBox`, `Label`; neste caso, quando, por exemplo, o campo de texto - `TextBox`, alterar
+seu valor por conta da interação com o usuário da aplicação, os demais componentes de tela podem terão a
+chance de reagir a essa alteração do valor do campo de texto do `TextBox`; o mesmo pode ser dito para o
+componente `Slider`, onde quando atualizado por conta da interação com o usuário, através do Mediator,
+deverá notificar os demais componentes do conjunto de colleagues; sem o uso deste design pattern, Mediator,
+o componente, por exemplo, `Slider`, teria que ter uma referência para os demais componentes que ele deseja
+notificar quando o valor dele fosse alterado através da interação com o usuário da aplicação; isso faria com
+que houvesse um maior acoplamento entre os elementos da interface da aplicação, pois cada componente teria
+que manter um referência para os demais elementos de interface;
+ - A classe concreta que representa o Mediator nesta implementação em particular, a classe  `UIMediator`,
+possui um método de registro de elementos que desejam colaborar entre si, que se chama
+`public void register(UIControl control)`; esta classe também possui um método chamado
+`public void valueChanged(UIControl control)`; este método serve para que um determinado integrante do grupo
+de objetos colaboradores notifique os demais quanto a alteração do seu estado interno;
+ - Mas, como lidar com a alteração de valor em um colleague? através da interface estabelecida neste caso
+de uso em particular, a interface `UIControl`, ela possui um método chamado `public void controlChanged()` e
+outro chamado `public T getValue()`; então, onde quer que haja a alteração de um componente de tela, ele deve
+invocar o Mediator (`UIMediator`), com o objetivo de notificar os demais componentes, onde o método que deve
+ser invocado recebe como argumento um colleague, que é um `UIControl`; que neste caso é o próprio elemento onde
+houve a alteração de estado, portanto, ele recebe como argumento o elemento em si; o papel do Mediator é passar
+essa referência de componente de tela onde houve a alteração de estado para os demais componentes (colleagues)
+para que, cada um deles, possa obter o valor que foi alterado no objeto recebido, ou seja, invocar o método
+`public T getValue()`;
