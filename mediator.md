@@ -86,3 +86,15 @@ houve a alteração de estado, portanto, ele recebe como argumento o elemento em
 essa referência de componente de tela onde houve a alteração de estado para os demais componentes (colleagues)
 para que, cada um deles, possa obter o valor que foi alterado no objeto recebido, ou seja, invocar o método
 `public T getValue()`;
+
+## Considerações de implementação:
+ - É importante que o Mediator possa identificar qual objeto fez o envio da notificação, para que ele possa
+ser filtrado com o objetivo de não enviar a notificação de volta para o mesmo objeto;
+ - Se o método de algum objeto do conjunto de objetos levar muito tempo para desempenhar a ação necessária,
+talvez isto possa afetar a performance do design como um todo; esta é uma consideração não somente deste
+design pattern, mas sim, em design patterns que utilizam esse mecanisco de notificação, como por exemplo, o
+design pattern Observer;
+ - Frequentimente acontece de termos a classe Mediator muito complexa, porque ela se torna o ponto central
+de comunicação entre diversos objetos e, caso esta comunicação seja mais específica, com relação ao método
+que deve ser invocado nos objetos do conjunto de colaboração, isto pode tornar a implementação mais difícil
+de manter, assim como, desenvolver testes unitários para essa classe;
