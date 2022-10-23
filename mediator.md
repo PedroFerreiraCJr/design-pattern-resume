@@ -98,3 +98,11 @@ design pattern Observer;
 de comunicação entre diversos objetos e, caso esta comunicação seja mais específica, com relação ao método
 que deve ser invocado nos objetos do conjunto de colaboração, isto pode tornar a implementação mais difícil
 de manter, assim como, desenvolver testes unitários para essa classe;
+
+## Considerações de design:
+ - Um aspecto que deve ser notado é que é possível estender a classe Mediator para criar diferentes variações
+com o objetivo de criar uma forma de comunicação, de forma que ele possa ficar dependente da plataforma;
+ - Um mediator abstrato muitas vezes não é preciso porque os objetos participando como colleagues são
+normalmente os mesmos;
+ - É possível usar o design pattern Observer para implementar o mecanismo de notificação dos elementos que
+fazem parte do conjunto de objetos colaboradores;
