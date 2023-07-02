@@ -1,6 +1,5 @@
 # Visitor:
- - Este design pattern permite definir novas operações em um objeto, sem ter que alterar a definição da classe
-do objeto;
+ - Este design pattern permite definir novas operações em um objeto, sem ter que alterar a definição da classe do objeto;
  - Pense neste design pattern como um objeto ("visitor") que visita todos os nós de uma estrutura de objeto.
 Toda vez que nosso visitor visita um objeto em particular da estrutura de objetos, aquele objeto chama um
 método específico no visitor, passando ele mesmo como um argumento;
@@ -10,7 +9,7 @@ iremos criar uma subclasse do visitor, e fornecer a implementação da nova oper
 a estrutura de objetos usando a nova subclasse criada;
  - Os objetos somente implementam um método "accept" onde o visitor é passado como argumento. Os objetos
 sabem sobre o método no visitor criado especificamente para ele e invocam aquele método dentro do método
-"accept", passando o próprio objeto como argumento;
+"accept", passando o próprio objeto como argumento.
 
 ## Principais papéis:
  - Client: O cliente usa a implementação do Visitor e aplica ela à estrutura de objetos;
@@ -29,7 +28,7 @@ chama um método em específico do visitor que foi recebido como argumento;
 recebem a visita do objeto que implementa a interface Visitor; chama o método que foi definido
 específicamente para esta Concrete Element no objeto visitor (implementação da interface Visitor)
 recebido como argumento; a implementação do método "accept" é bem trivial, porque apenas é necessário
-invocar o método do objeto argumento visitor passando o argumento "this" para o método do visitor;
+invocar o método do objeto argumento visitor passando o argumento "this" para o método do visitor.
 
 ## Passos de implementação:
  - Começamos criando a interface que representará o Visitor, que define os métodos de visita para cada classe
@@ -49,8 +48,7 @@ o intermédio de uma interface; assim, somente é preciso declarar o parâmetro 
 particular a classe que implementa a interface Element, e que está declarado na interface Visitor, passando
 como argumento o valor "this", referência para a instância do objeto corrente;
  - Posteriormente, é implementado a interface Visitor que tem os métodos com prefixo "visit", que devem
-suportar as classes Concrete Element; cada implementação fornece uma funcionalidade específica para uma classe
-Concrete Element em particular;
+suportar as classes Concrete Element; cada implementação fornece uma funcionalidade específica para uma classe Concrete Element em particular.
 
 ## A implementação de exemplo:
  - Neste exemplo de implementação do design pattern Visitor, nós temos uma interface chamada Employee que faz
@@ -69,7 +67,7 @@ funcionalidade, sendo possível fazer isso através do design pattern Visitor;
 informações sobre os papéis que foram criados; a segunda implementação da interface Visitor, é uma classe que
 deve percorrer a estrutura com o objetivo de aplicar uma avaliação (appraisal);
  - Como é de se esperar, a interface Visitor define métodos em sua API para aceitar as classes concretas que
-foram criadas: Programmer, ProjectLead, Manager, VicePresident;
+foram criadas: Programmer, ProjectLead, Manager, VicePresident.
 
 ## Considerações de implementação:
  - Não é necessário que haja uma classe base ou interface comun aos objetos que o Visitor suporta; neste
@@ -78,7 +76,7 @@ funcione corretamente; mas o código que utiliza o Visitor, e que mantem acesso 
 estar ciente das classes individuais existentes;
  - Frequentemente a classe que representa o objeto visitor precisa ter acesso ao estado interno dos objetos
 no qual operada para que possa efeturar determinado operação; dessa forma, é preciso expor esse estado interno
-através de métodos getter/setter;
+através de métodos getter/setter.
 
 ## Considerações de design:
  - Um efeito deste design pattern é que a funcionalidade relacionada é agrupada em uma única classe visitor
@@ -91,13 +89,13 @@ mesma alteração;
 objetos; então, assim como comportamento é possível ter estado em nosso objeto visitor; nós não temos que
 adicionar um novo estado nos objetos para um comportamento definido no objeto visitor;
  - O visitor pode ser usado para adicionar nova funcionalidade a estrutura de objetos implementada usando
-composite, ou pode ser usado para fazer interpretação no design pattern Interpreter;
+composite, ou pode ser usado para fazer interpretação no design pattern Interpreter.
 
 ## Exemplos do padrão:
  - A biblioteca dom4j utiliza este padrão para processar uma estrutura de objetos de uma árvore de nós XML;
  - Outro exemplo de implementação desse design pattern pode ser encontrado no pacote NIO da biblioteca padrão
 do Java; a interface que implementa este design pattern é a FileVisitor, tendo como uma implementação a classe
-SimpleFileVisitor;
+SimpleFileVisitor.
 
 ## Comparação de padrões:
  - Visitor: todas as subclasses possivelmente fornecem uma funcionalidade diferente das demais;
@@ -106,7 +104,7 @@ problema;
  - Então tendo duas subclasses de visitor é muito provável que elas forneçam implementações de determinada
 funcionalidade de maneira diferente;
  - No design pattern Strategy também temos subclasses, no entanto, cada subclasse representa um algoritmo
-diferente que resolve o mesmo problema;
+diferente que resolve o mesmo problema.
 
 ## Pontos negativos:
  - Frequentemente a implementação do visitor precisa acessar o estado do objeto em que vai executar
@@ -114,4 +112,4 @@ determinada operação; então acabamos fornecendo métodos getter, enfraquecend
  - O suporte a uma nova classe em nosso visitor requer alteração em todas as implementações do visitor, porque
 é necessário a definição de um novo método da interface do visitor;
  - Se as classes que o visitor suporta forem alteradas, todas as implementações de visitor também terão que
-ser alteradas para trabalhar com as classes alteradas;
+ser alteradas para trabalhar com as classes alteradas.
