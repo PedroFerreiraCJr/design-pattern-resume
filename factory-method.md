@@ -134,9 +134,28 @@ public class Client {
 }
 ```
 
+## Considerações de implementação:
+ - A classe **Creator** pode ser uma classe concreta, se ela puder fornecer uma instância no 
+factory method definido nela;
+ - É pissível usar o modo de recebimento de argumentos do Simple Factory para ter algum critério de uso
+para instanciar o objeto concreto do tipo "product";
+ - O design pattern Template Method, frequentemente faz uso deste design patter; assim como outro design
+pattern, o **Abstract Factory** também pode fazer uso deste padrão.
 
+## Exemplos do padrão:
+ - A interface **java.util.Collection** (AbstractCollection) possui um método, factory method, para
+retornar um Iterator<E> de acordo com a subclasse que implementa esta interface, como por exemplo, 
+ArrayList, LinkedList;
+ - A principal característica do design pattern **Factory Method** é: uma subclasse fornecendo a instancia
+concreta da parte que faz o papél do 'product'; exemplos que usam método estáticos para construir um objeto
+não são exemplos do design pattern **Factory Method**.
 
-
+## Pontos negativos:
+ - Mais complexo de implementar, porque envolve a criação de mais classes, e torna que será preciso testar 
+unitáriamente mais delas;
+ - É preciso utilizar este design pattern deste cedo no projeto, porque senão fica dificil criar a hierarquia 
+de classes; não é fácil refatorar o código existente para usar este design;
+ - Muitas vezes este design pattern força criar uma subclasse somente para criar uma instância adequada.
 
 
 
