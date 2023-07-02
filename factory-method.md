@@ -5,6 +5,8 @@ diversas partes do código para um classe em particular;
 diferença é que neste design, não sabemos de antemão quais classes podem ser instanciadas; também permite 
 adicionar novas classes ao sistema e lidar com a criação delas sem afetar o código cliente; e isto é 
 alcançado delegando a instanciação para subclasses;
+ - A subclasse da classe principal, ou **Creator** é quem define qual objeto produto concreto será
+instanciado.
 
 ## Principais papéis:
  - **Product**: classe base ou interface que deve ser criada;
