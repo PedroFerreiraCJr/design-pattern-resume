@@ -53,7 +53,7 @@ antes de poder instanciar o objeto criado pelo **Builder**;
  - Você deve fornecer um método para criar o objeto/produto desejado; desta forma, este deve ser o método
 de montagem do objeto final;
  - Outro passo que define este padrão é a classe **Director**; o **Director** pode ser uma classe 
-separada que faz o papel do cliente;
+separada que faz o papel do cliente.
 
 ## A implementação de exemplo:
  - Neste exemplo de implementação do design pattern **Builder**, teremos uma classe **User** que faz o 
