@@ -26,15 +26,15 @@ acordo com a subclasse;
 ## A implementação de exemplo:
  - A classe **Message** será a classe **Product**; podendo ser uma interface ou uma classe abstrata;
  - As subclasses utilizadas neste exemplo são:
-  1. TextMessage;
-  2. JsonMessage;
+  1. **TextMessage**;
+  2. **JsonMessage**;
 
  - Estas classes derivadas somente alternam a forma de armazenar o conteúdo da mensagem;
  - A classe **MessageCreator** é uma classe abstrata que fornece o **factory method** que deve ser 
 implementado para devolver a classe **Product** adequada (neste caso, uma subclasse de **Message**);
  - As subclasse de **MessageCreator** são duas:
-  1. TextMessageCreator;
-  2. JsonMessageCreator;
+  1. **TextMessageCreator**;
+  2. **JsonMessageCreator**;
 
  - Estas classes realizam a implementação do método abstrato da classe **MessageCreator**, que devem retornar
 p objeto adequado de acordo com a subsclasse instanciada.
@@ -48,11 +48,11 @@ public abstract class Message {
     public abstract String getContent();
 
     public void addDefaultHeaders() {
-
+        System.out.println("Adicionando os cabeçalhos padrão a mensagem...");
     }
 
     public void encrypt() {
-
+        System.out.println("Criptografando a mensagem...");
     }
 }
 ```
